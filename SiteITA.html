@@ -10,27 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Variáveis de Cores com Transparência (RGBA) */
+        /* Variáveis de Cores Atualizadas (P&B com Detalhes Amarelos) */
         :root {
-            /* Cores sólidas originais */
-            --ita-blue-solid: #000066;
-            --ita-yellow-solid: #FFFF24;
+            /* Cores Sólidas de Acento */
+            --accent-yellow: #FFFF24; /* Amarelo (apenas detalhes) */
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+            --dark-gray: #333333;
             
-            /* Cores transparentes para o fundo */
-            --ita-blue-transp: rgba(0, 0, 102, 0.75); /* 75% de opacidade */
-            --ita-yellow-transp: rgba(255, 255, 36, 0.85); /* 85% de opacidade */
-            --bg-light-transp: rgba(248, 249, 250, 0.6); /* 60% de opacidade */
-            --card-bg-transp: rgba(255, 255, 255, 0.85); /* 85% de opacidade */
+            /* Cores Transparentes para Fundo (com suporte a fundo de vídeo) */
+            --bg-dark-transp: rgba(0, 0, 0, 0.85);   /* Preto 85% opacidade */
+            --bg-light-transp: rgba(255, 255, 255, 0.9); /* Branco 90% opacidade */
+            --card-bg-transp: rgba(255, 255, 255, 0.8); /* Branco 80% opacidade */
             
-            --text-dark: #333333;
+            /* Texto */
             --text-light: #ffffff;
+            --text-dark: #1a1a1a;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Fonte atualizada para o padrão do Workshop */
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -41,12 +42,12 @@
             background-size: cover;
         }
 
-        /* --- Cabeçalho --- */
+        /* --- Cabeçalho (Fundo Escuro Transparente) --- */
         header {
-            background-color: var(--ita-blue-transp);
+            background-color: var(--bg-dark-transp);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,7 +58,7 @@
         }
 
         .logo {
-            color: var(--ita-yellow-solid);
+            color: var(--accent-yellow); /* Detalhe em amarelo */
             font-size: 28px;
             font-weight: 800;
             text-decoration: none;
@@ -71,9 +72,9 @@
         }
 
         nav ul li a {
-            color: var(--text-light);
+            color: var(--text-light); /* Texto branco */
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -81,43 +82,49 @@
         }
 
         nav ul li a:hover {
-            color: var(--ita-yellow-solid);
+            color: var(--accent-yellow); /* Detalhe em amarelo no hover */
         }
 
-        /* --- Seção Principal (Hero) --- */
+        /* --- Seção Principal Hero (Fundo Escuro Transparente) --- */
         .hero {
-            background-color: var(--ita-blue-transp);
+            background-color: var(--bg-dark-transp);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             color: var(--text-light);
             text-align: center;
-            padding: 120px 20px;
+            padding: 100px 20px;
         }
 
         .hero h1 {
-            color: var(--ita-yellow-solid);
-            font-size: 42px;
+            color: var(--text-light); /* Texto principal branco */
+            font-size: 38px;
             font-weight: 800;
             margin-bottom: 20px;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.3;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Destaque amarelo específico dentro do título */
+        .hero h1 span.highlight {
+            color: var(--accent-yellow);
         }
 
-        /* --- Números / Estatísticas --- */
+        /* --- Números / Estatísticas (Fundo Claro Transparente) --- */
         .stats-container {
             display: flex;
             justify-content: center;
             gap: 80px;
             padding: 40px 20px;
-            background-color: var(--ita-yellow-transp);
+            background-color: var(--bg-light-transp);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            color: var(--ita-blue-solid);
+            color: var(--pure-black); /* Texto preto */
             text-align: center;
             flex-wrap: wrap;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         .stat-box h2 {
@@ -126,20 +133,19 @@
         }
 
         .stat-box p {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             text-transform: uppercase;
             margin-top: 5px;
             letter-spacing: 1px;
+            color: var(--dark-gray);
         }
 
-        /* --- Sobre o ITA --- */
+        /* --- Sobre o ITA (Fundo Branco Semi-Opaco) --- */
         .about-section {
             padding: 80px 20px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95); /* Quase opaco */
         }
 
         .about-content {
@@ -148,23 +154,23 @@
         }
 
         .about-section h2 {
-            color: var(--ita-blue-solid);
+            color: var(--pure-black);
             font-size: 36px;
             font-weight: 800;
             margin-bottom: 30px;
         }
 
         .about-section p {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 400;
             line-height: 1.8;
             text-align: justify;
-            color: #222;
+            color: var(--text-dark);
         }
 
-        /* --- Missão, Iniciativas e Defesa (Cards) --- */
+        /* --- Cards (Fundo Claro Transparente com Detalhes) --- */
         .features-section {
-            background-color: var(--bg-light-transp);
+            background-color: rgba(245, 245, 245, 0.7); /* Cinza muito claro transp */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             padding: 80px 20px;
@@ -176,56 +182,61 @@
 
         .feature-card {
             background-color: var(--card-bg-transp);
-            border-top: 6px solid var(--ita-yellow-solid);
-            border-bottom: 6px solid var(--ita-blue-solid);
-            border-radius: 8px;
-            padding: 40px 30px;
+            border-top: 4px solid var(--accent-yellow); /* Detalhe amarelo no topo */
+            border-bottom: 4px solid var(--pure-black);   /* Detalhe preto no fundo */
+            border-radius: 4px;
+            padding: 30px;
             width: 30%;
             min-width: 300px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .feature-card h3 {
-            color: var(--ita-blue-solid);
-            font-size: 24px;
+            color: var(--pure-black);
+            font-size: 22px;
             font-weight: 700;
             margin-bottom: 15px;
         }
 
         .feature-card p {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 400;
             line-height: 1.6;
-            color: #444;
+            color: var(--dark-gray);
             text-align: justify;
         }
 
-        /* --- Vídeo Institucional --- */
+        /* --- Vídeo Institucional (Fundo Escuro Transparente) --- */
         .video-section {
             padding: 80px 20px;
             text-align: center;
-            background-color: var(--ita-blue-transp);
+            background-color: var(--bg-dark-transp);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             color: var(--text-light);
         }
 
         .video-section h2 {
-            color: var(--ita-yellow-solid);
+            color: var(--text-light);
             font-size: 36px;
             font-weight: 800;
             margin-bottom: 40px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .video-section h2 span.highlight {
+            color: var(--accent-yellow); /* Detalhe amarelo */
         }
 
         .video-placeholder {
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 4px solid var(--ita-yellow-solid);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.1); /* Borda sutil branca */
+            border-top: 4px solid var(--accent-yellow);  /* Acento amarelo topo */
             width: 100%;
             max-width: 900px;
             height: 500px;
@@ -234,17 +245,15 @@
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 20px;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            font-size: 18px;
+            border-radius: 4px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
-        /* --- Rodapé --- */
+        /* --- Rodapé (Fundo Preto Sólido) --- */
         footer {
-            background-color: rgba(0, 0, 102, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 40px 5%;
+            background-color: var(--pure-black);
+            padding: 30px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -255,6 +264,11 @@
         footer .logo {
             font-size: 24px;
             font-weight: 800;
+            color: var(--accent-yellow);
+        }
+        
+        footer nav ul li a {
+            font-size: 13px;
         }
 
         /* Responsividade */
@@ -262,16 +276,22 @@
             header, footer {
                 flex-direction: column;
                 gap: 20px;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
             }
             .hero h1 {
-                font-size: 30px;
+                font-size: 28px;
             }
             .feature-card {
                 width: 100%;
             }
             .stats-container {
-                gap: 40px;
+                gap: 30px;
                 flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -292,7 +312,7 @@
     </header>
 
     <section class="hero">
-        <h1>Vestibular ITA<br>Estude em um centro de excelência que contribui significativamente para o desenvolvimento científico, tecnológico e de defesa do Brasil.</h1>
+        <h1>Vestibular <span class="highlight">ITA</span><br>Estude em um centro de excelência que contribui significativamente para o desenvolvimento científico, tecnológico e de defesa do Brasil.</h1>
     </section>
 
     <section class="stats-container">
@@ -339,9 +359,9 @@
     </section>
 
     <section class="video-section">
-        <h2>Vídeo Institucional</h2>
+        <h2>Vídeo <span class="highlight">Institucional</span></h2>
         <div class="video-placeholder">
-            [ Espaço Reservado para o Vídeo Institucional / Fotos ]
+            [ Espaço Reservado para o Vídeo / Fotos ]
         </div>
     </section>
 
