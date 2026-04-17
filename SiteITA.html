@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestibular ITA</title>
+    <style>
+        /* Variáveis de Cores (Padrão ITA solicitado) */
+        :root {
+            --ita-blue: #000066;
+            --ita-yellow: #FFFF24;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+        }
+
+        /* --- Cabeçalho (Botões do Vestibular) --- */
+        header {
+            background-color: var(--ita-blue);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--ita-yellow);
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--ita-yellow);
+        }
+
+        /* --- Seção Principal (Hero) --- */
+        .hero {
+            background-color: var(--ita-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            color: var(--ita-yellow);
+            font-size: 48px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+        }
+
+        /* --- Números / Estatísticas --- */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            padding: 40px 20px;
+            background-color: var(--ita-yellow);
+            color: var(--ita-blue);
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-box h2 {
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        .stat-box p {
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* --- Sobre o ITA --- */
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: var(--ita-blue);
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+            color: #555;
+        }
+
+        /* --- Missão, Iniciativas e Defesa (Cards) --- */
+        .features-section {
+            background-color: var(--bg-light);
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: var(--text-light);
+            border-top: 6px solid var(--ita-yellow);
+            border-bottom: 6px solid var(--ita-blue);
+            border-radius: 8px;
+            padding: 40px 30px;
+            width: 30%;
+            min-width: 300px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            color: var(--ita-blue);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* --- Vídeo Institucional --- */
+        .video-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--ita-blue);
+            color: var(--text-light);
+        }
+
+        .video-section h2 {
+            color: var(--ita-yellow);
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .video-placeholder {
+            background-color: #000;
+            border: 4px solid var(--ita-yellow);
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: var(--ita-blue);
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer .logo {
+            font-size: 24px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header, footer {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .feature-card {
+                width: 100%;
+            }
+            .stats-container {
+                gap: 40px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">ITA</a>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Instruções</a></li>
+                <li><a href="#">Inscrições</a></li>
+                <li><a href="#">Provas Anteriores</a></li>
+                <li><a href="#">Resultados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Vestibular ITA<br>Estude em um centro de excelência que contribui significativamente para o desenvolvimento científico, tecnológico e de defesa do Brasil.</h1>
+    </section>
+
+    <section class="stats-container">
+        <div class="stat-box">
+            <h2>8</h2>
+            <p>Cursos</p>
+        </div>
+        <div class="stat-box">
+            <h2>+10.000</h2>
+            <p>Candidatos no último vestibular</p>
+        </div>
+        <div class="stat-box">
+            <h2>+1.000</h2>
+            <p>Alunos de graduação</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>Sobre o ITA</h2>
+        <p>
+            O Instituto Tecnológico de Aeronáutica (ITA) representa uma instituição de ensino superior pública, reconhecida nacionalmente pela excelência em formação na área da engenharia, especialmente voltada para o setor aeroespacial. Localizado na cidade de São José dos Campos, São Paulo, o ITA está vinculado ao Departamento de Ciência e Tecnologia Aeroespacial (DCTA) da Força Aérea Brasileira, integrando-se assim às estruturas de defesa e pesquisa do país.
+        </p>
+        <br>
+        <p>
+            A instituição oferece uma variedade de cursos de graduação e pós-graduação, destacando-se por seu alto padrão de ensino e pesquisa. Além de uma sólida formação acadêmica, o ITA proporciona aos seus alunos recursos como moradia de baixo custo e refeições gratuitas, facilitando assim o acesso e a permanência dos estudantes. Devido à sua contribuição significativa na formação de profissionais altamente qualificados, o ITA é frequentemente listado entre as melhores instituições de ensino superior do Brasil.
+        </p>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <h3>Missão</h3>
+            <p>Desde a sua fundação, o ITA tem como missão formar líderes e inovadores no campo da engenharia, com uma forte ênfase na área aeroespacial. Através de uma abordagem multidisciplinar, a instituição busca não apenas transmitir conhecimentos técnicos, mas também desenvolver habilidades como liderança, gestão e inovação nos seus alunos.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Iniciativas Estudantis</h3>
+            <p>Nossas iniciativas são o laboratório vivo onde o conhecimento de engenharia encontra a gestão, a inovação e o compromisso social. Elas estão organizadas em pilares que movem o futuro. Seja você um estudante em busca de desafio, uma empresa procurando os melhores talentos ou um entusiasta da ciência, as iniciativas do ITA são a porta de entrada para o que há de mais avançado no país.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Defesa Nacional</h3>
+            <p>No ITA, a engenharia encontra o seu propósito mais elevado: a defesa da nossa nação. Mais do que formar profissionais de elite, o Instituto é o berço de oficiais-engenheiros que dedicam sua inteligência e liderança à Força Aérea Brasileira (FAB) e à garantia da soberania nacional. A carreira militar no ITA não é apenas uma escolha profissional; é um compromisso com o futuro estratégico do Brasil.</p>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2>Vídeo Institucional</h2>
+        <div class="video-placeholder">
+            [ Espaço Reservado para o Vídeo Institucional / Fotos ]
+        </div>
+    </section>
+
+    <footer>
+        <a href="#" class="logo">ITA</a>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Instruções</a></li>
+                <li><a href="#">Inscrições</a></li>
+                <li><a href="#">Provas Anteriores</a></li>
+                <li><a href="#">Resultados</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
