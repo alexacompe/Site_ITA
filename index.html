@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestibular ITA | Excelência Aeroespacial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* NOVA IDENTIDADE VISUAL - PALETA AEROESPACIAL */
+        :root {
+            --primary-blue: #1A2B44;    /* Azul Profundo (Confiança e Institucional) */
+            --accent-gold: #C5A059;     /* Dourado (Excelência e Tradição Militar) */
+            --sky-blue: #0056b3;        /* Azul Aviação */
+            --pure-white: #ffffff;
+            --light-gray: #f4f7f6;
+            --glass-bg: rgba(26, 43, 68, 0.85);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            color: var(--primary-blue);
+            overflow-x: hidden;
+            background-color: #0a0e14;
+            line-height: 1.6;
+        }
+
+        /* --- VÍDEO DE FUNDO --- */
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(0.4); /* Escurece o vídeo para dar destaque ao texto */
+        }
+
+        /* --- Cabeçalho --- */
+        header {
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Estilo para a imagem do logo */
+        .logo img {
+            height: 45px; /* Ajuste a altura conforme necessário */
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--pure-white); 
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Seção Principal Hero --- */
+        .hero {
+            padding: 150px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(26, 43, 68, 0.7), rgba(10, 14, 20, 0.9));
+        }
+
+        .hero h1 {
+            color: var(--pure-white); 
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 span.highlight {
+            color: var(--accent-gold);
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        /* --- Números / Estatísticas --- */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            padding: 60px 20px;
+            background-color: var(--pure-white);
+            color: var(--primary-blue);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-box {
+            text-align: center; /* Garante que todos os itens fiquem centralizados */
+        }
+
+        .stat-box h2 {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+        }
+
+        /* --- Sobre o ITA --- */
+        .about-section {
+            padding: 100px 10%;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: var(--primary-blue);
+            font-size: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-section h2::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* --- Cards --- */
+        .features-section {
+            background-color: var(--primary-blue);
+            padding: 100px 5%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: var(--pure-white);
+            border-radius: 12px;
+            width: 30%;
+            min-width: 320px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            background-color: #2c3e50;
+            position: relative;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(26, 43, 68, 0.4));
+        }
+
+        .card-content {
+            padding: 40px 30px;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-blue);
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card h3::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        /* --- Vídeo Institucional --- */
+        .video-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: #0a0e14;
+            color: var(--pure-white);
+        }
+
+        .video-container {
+            border: 8px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 0 50px rgba(197, 160, 89, 0.1);
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: var(--primary-blue);
+            padding: 60px 8%;
+            border-top: 4px solid var(--accent-gold);
+            color: var(--pure-white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; gap: 20px; }
+            .hero h1 { font-size: 32px; }
+            .stats-container { gap: 40px; flex-direction: column; }
+            .feature-card { width: 100%; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="CAMINHO_DO_VIDEO_DE_FUNDO.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <a href="index.html" class="logo"><img src="ITA.png" alt="Logo ITA"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="Pagina_Noticias.html">Notícias</a></li>
+                <li><a href="Página_Instruções.html">Instruções</a></li>
+                <li><a href="Página_Inscrições.html">Inscrições</a></li>
+                <li><a href="Pagina_Provas.html">Provas</a></li>
+                <li><a href="Página_Estatísticas.html">Estatísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Vestibular <span class="highlight">ITA</span><br>Sua jornada rumo à elite da engenharia brasileira começa aqui.</h1>
+    </section>
+
+    <section class="stats-container">
+        <div class="stat-box">
+            <h2 class="counter" data-target="8" data-format="pad">00</h2>
+            <p>Cursos</p>
+        </div>
+        <div class="stat-box">
+            <h2 class="counter" data-target="10000" data-prefix="+" data-format="dot">+0</h2>
+            <p>Inscritos em 2025</p>
+        </div>
+        <div class="stat-box">
+            <h2 class="counter" data-target="1000" data-prefix="+" data-format="dot">+0</h2>
+            <p>Alunos na graduação</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-content">
+            <h2>O Instituto</h2>
+            <p>
+                O Instituto Tecnológico de Aeronáutica (ITA) representa uma instituição de ensino superior pública, reconhecida nacionalmente pela excelência em formação na área da engenharia, especialmente voltada para o setor aeroespacial. Localizado na cidade de São José dos Campos, São Paulo, o ITA está vinculado ao Departamento de Ciência e Tecnologia Aeroespacial (DCTA) da Força Aérea Brasileira, integrando-se assim às estruturas de defesa e pesquisa do país.
+
+                A instituição oferece uma variedade de cursos de graduação e pós-graduação, destacando-se por seu alto padrão de ensino e pesquisa. Além de uma sólida formação acadêmica, o ITA proporciona aos seus alunos recursos como moradia de baixo custo e refeições gratuitas, facilitando assim o acesso e a permanência dos estudantes. Devido à sua contribuição significativa na formação de profissionais altamente qualificados, o ITA é frequentemente listado entre as melhores instituições de ensino superior do Brasil.
+            </p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="card-image">
+                <img src="FOTO_MISSAO.jpg" alt="Missão ITA" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="card-content">
+                <h3>Missão e Valores</h3>
+                <p>Desde a sua fundação, o ITA tem como missão formar líderes e inovadores no campo da engenharia. Através de uma abordagem multidisciplinar, a instituição busca não apenas transmitir conhecimentos técnicos, mas também desenvolver habilidades como liderança, gestão e inovação nos seus alunos, formando engenheiros de elite capazes de transformar a tecnologia brasileira com ética, liderança e visão estratégica.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-image">
+                <img src="FOTO_INICIATIVAS.jpg" alt="Iniciativas Estudantis" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="card-content">
+                <h3>Iniciativas Estudantis</h3>
+                <p>Nossas iniciativas são o laboratório vivo onde o conhecimento de engenharia encontra a gestão, a inovação e o compromisso social. Elas estão organizadas em pilares que movem o futuro. Seja você um estudante em busca de desafio, uma empresa procurando os melhores talentos ou um entusiasta da ciência, as iniciativas do ITA são a porta de entrada para o que há de mais avançado no país.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-image">
+                <img src="FOTO_DEFESA.jpg" alt="Defesa Nacional" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="card-content">
+                <h3>Carreira Militar</h3>
+                <p>No ITA, a engenharia encontra o seu propósito mais elevado: a defesa da nossa nação. Mais do que formar profissionais de elite, o Instituto é o berço de oficiais-engenheiros que dedicam sua inteligência e liderança à Força Aérea Brasileira (FAB) e à garantia da soberania nacional.
+
+A carreira militar no ITA não é apenas uma escolha profissional; é um compromisso com o futuro estratégico do Brasil.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2 style="margin-bottom: 40px;">Conheça o <span style="color: var(--accent-gold);">Instituto</span></h2>
+        <div class="video-container">
+            <video controls class="inst-video" style="width: 100%; border-radius: 8px; display: block;">
+                <source src="CAMINHO_DO_VIDEO_INSTITUCIONAL.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+        </div>
+    </section>
+
+    <footer>
+        <a href="index.html" class="logo"><img src="ITA.png" alt="Logo ITA"></a>
+        <p style="font-size: 12px; opacity: 0.7;">© 2026 Instituto Tecnológico de Aeronáutica - São José dos Campos, SP</p>
+        <nav>
+            <ul>
+                <li><a href="Pagina_Q&A.html" style="font-size: 11px;">Perguntas Frequentes</a></li>
+                <li><a href="Pagina_Contato.html" style="font-size: 11px;">Contato</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // Duração total da animação (em ms)
+                    const frameRate = 30;  // Atualização a cada 30ms
+                    const totalFrames = duration / frameRate;
+                    const increment = target / totalFrames;
+                    let currentCount = 0;
+
+                    const updateCounter = setInterval(() => {
+                        currentCount += increment;
+                        
+                        if (currentCount >= target) {
+                            currentCount = target;
+                            clearInterval(updateCounter); // Para a animação quando chega no alvo
+                        }
+
+                        let displayValue = Math.ceil(currentCount);
+                        let prefix = counter.getAttribute('data-prefix') || '';
+                        let suffix = counter.getAttribute('data-suffix') || '';
+                        
+                        // Lógica de formatação (adicionar zero à esquerda para menores que 10)
+                        if (counter.getAttribute('data-format') === 'pad' && displayValue < 10) {
+                            displayValue = '0' + displayValue;
+                        }
+                        // Lógica de formatação (adicionar ponto para milhar)
+                        if (counter.getAttribute('data-format') === 'dot') {
+                            displayValue = displayValue.toLocaleString('pt-BR');
+                        }
+
+                        counter.innerText = prefix + displayValue + suffix;
+                    }, frameRate);
+                });
+            };
+
+            // Dispara a animação APENAS quando a seção de estatísticas aparecer na tela
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateCounters();
+                    observer.disconnect(); // Roda a animação apenas uma vez
+                }
+            }, { threshold: 0.5 }); // O 0.5 significa que vai disparar quando 50% da seção estiver visível
+
+            const statsSection = document.querySelector('.stats-container');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

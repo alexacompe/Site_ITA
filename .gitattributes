@@ -1,0 +1,2 @@
+CAMINHO_DO_VIDEO_DE_FUNDO.mp4 filter=lfs diff=lfs merge=lfs -text
+CAMINHO_DO_VIDEO_INSTITUCIONAL.mp4 filter=lfs diff=lfs merge=lfs -text

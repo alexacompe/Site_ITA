@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Vestibular ITA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #1A2B44;
+            --accent-gold: #C5A059;
+            --sky-blue: #0056b3;
+            --pure-white: #ffffff;
+            --light-gray: #f4f7f6;
+            --glass-bg: rgba(26, 43, 68, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #0a0e14;
+            color: var(--pure-white);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Cabeçalho --- */
+        header {
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--pure-white); 
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Seção de Contato --- */
+        .contact-container {
+            flex: 1;
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(26, 43, 68, 0.8), rgba(10, 14, 20, 0.9)), url('SUA_IMAGEM_DE_FUNDO.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact-card {
+            background: var(--pure-white);
+            color: var(--primary-blue);
+            padding: 50px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .contact-card h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .info-group h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .info-group p {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .info-group a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .info-group a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: var(--primary-blue);
+            padding: 40px 8%;
+            border-top: 4px solid var(--accent-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; gap: 20px; }
+            .info-grid { grid-template-columns: 1fr; gap: 20px; }
+            .contact-card { padding: 30px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="ITA.png" alt="Logo ITA"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="Pagina_Noticias.html">Notícias</a></li>
+                <li><a href="Página_Instruções.html">Instruções</a></li>
+                <li><a href="Página_Inscrições.html">Inscrições</a></li>
+                <li><a href="Pagina_Provas.html">Provas</a></li>
+                <li><a href="Página_Estatísticas.html">Estatísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <div class="contact-card">
+            <h1>Contato</h1>
+            <p class="subtitle">Seção de Vestibular do ITA</p>
+            
+            <div class="info-grid">
+                <div class="info-group">
+                    <h3>Canais de Atendimento</h3>
+                    <p><strong>Tel:</strong> (12) 3947-5813</p>
+                    <p><strong>Tel/Fax:</strong> (12) 3947-5932</p>
+                    <p><strong>E-mail:</strong> <a href="mailto:vestita@ita.br">vestita@ita.br</a></p>
+                </div>
+
+                <div class="info-group">
+                    <h3>Coordenadoria</h3>
+                    <p>João Batista do PORTO Neves Júnior - Cel. R1</p>
+                </div>
+
+                <div class="info-group">
+                    <h3>Secretaria</h3>
+                    <p>Eucelis Junia Lima</p>
+                </div>
+
+                <div class="info-group">
+                    <h3>Localização</h3>
+                    <p>DCTA - São José dos Campos, SP<br>Brasil</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="index.html" class="logo"><img src="ITA.png" alt="Logo ITA"></a>
+        <p>© 2026 Instituto Tecnológico de Aeronáutica - São José dos Campos, SP</p>
+        <nav>
+            <ul>
+                <li><a href="Pagina_Q&A.html" style="font-size: 11px;">Perguntas Frequentes</a></li>
+                <li><a href="Pagina_Contato.html" style="font-size: 11px;">Contato</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>

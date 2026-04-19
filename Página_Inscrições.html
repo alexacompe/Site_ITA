@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrições | Vestibular ITA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* IDENTIDADE VISUAL - PALETA AEROESPACIAL */
+        :root {
+            --primary-blue: #1A2B44;
+            --accent-gold: #C5A059;
+            --sky-blue: #0056b3;
+            --pure-white: #ffffff;
+            --light-gray: #f4f7f6;
+            --glass-bg: rgba(26, 43, 68, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #0a0e14;
+            color: var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(rgba(26, 43, 68, 0.8), rgba(10, 14, 20, 0.9)), url('SUA_IMAGEM_DE_FUNDO.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* --- Cabeçalho --- */
+        header {
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--pure-white); 
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Estrutura Principal --- */
+        .news-container {
+            flex: 1;
+            padding: 60px 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--pure-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-header h1 span {
+            color: var(--accent-gold);
+        }
+
+        /* --- Seção de Inscrições / Aviso --- */
+        .news-feed {
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .news-card {
+            background: var(--pure-white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-left: 6px solid var(--accent-gold);
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Classes específicas para o aviso */
+        .alert-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 40px;
+        }
+
+        .alert-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .alert-message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .news-card h2 {
+            font-size: 26px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .news-info {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 30px;
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .info-block {
+            text-align: center;
+        }
+
+        .info-block strong {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        .info-block span {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .news-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--pure-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--sky-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--pure-white);
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: var(--primary-blue);
+            padding: 40px 8%;
+            border-top: 4px solid var(--accent-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: var(--pure-white);
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; gap: 20px; }
+            .news-info { flex-direction: column; gap: 15px; }
+            .news-actions { flex-direction: column; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .news-card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="ITA.png" alt="Logo ITA"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="Pagina_Noticias.html">Notícias</a></li>
+                <li><a href="Página_Instruções.html">Instruções</a></li>
+                <li><a href="Página_Inscrições.html">Inscrições</a></li>
+                <li><a href="Pagina_Provas.html">Provas</a></li>
+                <li><a href="Página_Estatísticas.html">Estatísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="news-container">
+        
+        <div class="page-header">
+            <h1>Painel de <span>Inscrições</span></h1>
+        </div>
+
+        <section class="news-feed">
+            <div class="news-card alert-card">
+                <div class="alert-icon">🔒</div>
+                <h2>Inscrições Temporariamente Fechadas</h2>
+                
+                <p class="alert-message">
+                    As inscrições para o Vestibular ITA ainda <strong>não foram abertas</strong>. 
+                    O formulário de cadastro e envio de documentação estará disponível nesta página 
+                    assim que o período oficial for iniciado.
+                </p>
+
+                <div class="news-info">
+                    <div class="info-block">
+                        <strong>Aviso Importante</strong>
+                        <span>Por favor, aguarde atualizações na aba de Notícias para conferir o edital e os prazos oficiais.</span>
+                    </div>
+                </div>
+
+                <div class="news-actions">
+                    <a href="Pagina_Noticias.html" class="btn btn-primary">Acompanhar Notícias</a>
+                    <a href="index.html" class="btn btn-outline">Voltar ao Início</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="index.html" class="logo"><img src="ITA.png" alt="Logo ITA"></a>
+        <p>© 2026 Instituto Tecnológico de Aeronáutica - São José dos Campos, SP</p>
+        <nav>
+            <ul>
+                <li><a href="Pagina_Q&A.html" style="font-size: 11px; color: var(--pure-white); text-decoration: none;">Perguntas frequentes</a></li>
+                <li><a href="Pagina_Contato.html" style="font-size: 11px; color: var(--pure-white); text-decoration: none;">Contato</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
